@@ -99,7 +99,7 @@ const HeroSection = () => {
         transition={{ duration: 1, ease: "easeOut" }}
       >
         {/* Typewriter Effect for Name */}
-        <h1 className="text-2xl md:text-5xl font-semibold text-red-500">
+        <h1 className="text-3xl md:text-5xl font-semibold text-red-500">
           <TypeAnimation
             sequence={[
               "Sakib Nahid",
