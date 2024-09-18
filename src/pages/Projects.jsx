@@ -98,10 +98,10 @@ const Projects = () => {
       : projects.filter((p) => p.category === activeCategory);
 
   return (
-    <div className="min-h-screen bg-gray-100 py-12 px-4 sm:px-6 lg:px-8">
+    <div className="min-h-screen bg-gray-100 py-16 md:py-6 px-4 sm:px-6 lg:px-8">
       <div className="max-w-7xl mx-auto">
-        <h2 className="text-4xl font-bold text-red-500 text-center mb-8">
-          Showtime
+        <h2 className="text-4xl font-bold text-dark text-center mb-8">
+          Experiments
         </h2>
 
         <FilterTabs

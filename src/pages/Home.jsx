@@ -61,7 +61,7 @@ const WelcomeMessage = ({ onComplete }) => {
       {showSecondMessage && (
         <TypeAnimation
           sequence={[
-            "I'm the developer you need...", // Types this message
+            "I'm the developer you need . . .", // Types this message
             4000, // Waits for 2 seconds
           ]}
           wrapper="h2"
