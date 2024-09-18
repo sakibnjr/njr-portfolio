@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { motion } from "framer-motion";
+import toast, { Toaster } from "react-hot-toast"; // Import react-hot-toast
 import { FaLinkedin, FaGithub, FaTwitter } from "react-icons/fa";
 import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
 import "leaflet/dist/leaflet.css";
@@ -20,61 +21,65 @@ const ContactForm = ({ projectType }) => {
   const handleSubmit = (e) => {
     e.preventDefault();
     // Handle form submission logic here
-    alert("Form submitted");
+    toast.success("Form submitted successfully!");
   };
 
   return (
-    <motion.form
-      className="relative bg-white p-6 rounded-lg shadow-lg"
-      onSubmit={handleSubmit}
-      initial={{ opacity: 0, y: 50 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.8, ease: "easeOut" }}
-    >
-      <h3 className="text-2xl font-bold text-red-500 mb-4">{`Build a ${projectType}`}</h3>
-      <label className="block mb-4">
-        <span className="text-gray-700">Name</span>
-        <input
-          type="text"
-          name="name"
-          value={formState.name}
-          onChange={handleChange}
-          className="mt-1 block w-full p-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-500"
-          placeholder="Your Name"
-          required
-        />
-      </label>
-      <label className="block mb-4">
-        <span className="text-gray-700">Email</span>
-        <input
-          type="email"
-          name="email"
-          value={formState.email}
-          onChange={handleChange}
-          className="mt-1 block w-full p-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-500"
-          placeholder="Your Email"
-          required
-        />
-      </label>
-      <label className="block mb-4">
-        <span className="text-gray-700">Message</span>
-        <textarea
-          name="message"
-          value={formState.message}
-          onChange={handleChange}
-          className="mt-1 block w-full p-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-500"
-          placeholder="Your Message"
-          rows="4"
-          required
-        />
-      </label>
-      <button
-        type="submit"
-        className="w-full py-2 bg-red-500 text-white font-semibold rounded-lg hover:bg-red-400 transition-colors duration-300"
+    <>
+      <Toaster />
+
+      <motion.form
+        className="relative bg-white p-6 rounded-lg shadow-lg"
+        onSubmit={handleSubmit}
+        initial={{ opacity: 0, y: 50 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8, ease: "easeOut" }}
       >
-        Send Message
-      </button>
-    </motion.form>
+        <h3 className="text-2xl font-bold text-red-500 mb-4">{`Build a ${projectType}`}</h3>
+        <label className="block mb-4">
+          <span className="text-gray-700">Name</span>
+          <input
+            type="text"
+            name="name"
+            value={formState.name}
+            onChange={handleChange}
+            className="mt-1 block w-full p-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-500"
+            placeholder="Your Name"
+            required
+          />
+        </label>
+        <label className="block mb-4">
+          <span className="text-gray-700">Email</span>
+          <input
+            type="email"
+            name="email"
+            value={formState.email}
+            onChange={handleChange}
+            className="mt-1 block w-full p-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-500"
+            placeholder="Your Email"
+            required
+          />
+        </label>
+        <label className="block mb-4">
+          <span className="text-gray-700">Message</span>
+          <textarea
+            name="message"
+            value={formState.message}
+            onChange={handleChange}
+            className="mt-1 block w-full p-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-500"
+            placeholder="Your Message"
+            rows="4"
+            required
+          />
+        </label>
+        <button
+          type="submit"
+          className="w-full py-2 bg-red-500 text-white font-semibold rounded-lg hover:bg-red-400 transition-colors duration-300"
+        >
+          Send Message
+        </button>
+      </motion.form>
+    </>
   );
 };
 
@@ -131,7 +136,7 @@ const Contact = () => {
   const [projectType, setProjectType] = useState("Web Apps");
 
   return (
-    <div className="relative bg-gray-100 py-12 px-4 sm:px-6 lg:px-8 min-h-screen">
+    <div className=" bg-gray-100 py-12 px-4 sm:px-6 lg:px-8">
       <div className="max-w-7xl mx-auto">
         <div className="flex flex-col lg:flex-row">
           <div className="lg:w-7/10 w-full lg:pr-4 mb-8 lg:mb-0">
@@ -147,7 +152,7 @@ const Contact = () => {
                   <FaLinkedin className="text-3xl text-red-500 hover:text-red-300 transition-colors duration-300" />
                 </a>
                 <a
-                  href="https://github.com/yourprofile"
+                  href="https://github.com/sakibnjr"
                   target="_blank"
                   rel="noopener noreferrer"
                 >

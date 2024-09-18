@@ -68,7 +68,7 @@ const CertificationCard = ({ name, issuer, date, link }) => {
 
 const Certifications = () => {
   return (
-    <div className="relative min-h-screen bg-gray-100 py-12 px-4 sm:px-6 lg:px-8">
+    <div className="bg-gray-100 py-12 px-4 sm:px-6 lg:px-8">
       <h2 className="text-4xl font-bold text-center text-red-500 mb-10">
         Certifications
       </h2>

@@ -55,7 +55,11 @@ const Navbar = () => {
             transition={{ duration: 0.7, ease: "easeOut" }}
           >
             <NavLink to="/">
-              sakib<span className="italic text-4xl">N</span> jr
+              sakib
+              <span className="italic text-4xl relative top-1 right-1">
+                N
+              </span>{" "}
+              jr
             </NavLink>
           </motion.h1>
 
@@ -104,14 +108,17 @@ const Navbar = () => {
       </div>
 
       {/* Mobile View: Site Name at Top with Fancy Font */}
-      <div className="md:hidden fixed inset-x-0 top-0 bg-transparent text-center py-4">
+      <div className="md:hidden relative text-center py-2">
         <motion.h1
           className="text-2xl font-bold text-red-500 font-[cursive]" // Fancy font for mobile too
           initial={{ opacity: 0, scale: 0.8 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.7, ease: "easeOut" }}
         >
-          SakibNJr
+          <NavLink to="/" className="font-[Merienda] tracking-tight">
+            sakib
+            <span className="italic text-4xl relative top-1 right-1">N</span>jr
+          </NavLink>
         </motion.h1>
       </div>
     </>

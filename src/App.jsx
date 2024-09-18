@@ -1,5 +1,6 @@
 import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { Toaster } from "react-hot-toast";
 import Navbar from "./components/Navbar"; // Updated Navbar import
 import Home from "./pages/Home"; // Placeholder for Home page
 import About from "./pages/About"; // Placeholder for About page
@@ -13,6 +14,7 @@ const App = () => {
     <Router>
       <div className="min-h-screen bg-gray-100 text-gray-900">
         <Navbar />
+        <Toaster />
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />

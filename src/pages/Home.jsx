@@ -44,11 +44,11 @@ const WelcomeMessage = ({ onComplete }) => {
   }, [onComplete]);
 
   return (
-    <div className="flex flex-col items-center justify-center h-screen">
+    <div className="flex flex-col items-center justify-center min-h-screen">
       {/* First Message */}
       {showFirstMessage && (
         <motion.h1
-          className="text-6xl font-bold text-red-500"
+          className="text-4xl font-bold text-red-500"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 1 }}
@@ -76,7 +76,7 @@ const WelcomeMessage = ({ onComplete }) => {
 // Hero Section
 const HeroSection = () => {
   return (
-    <div className="relative h-screen flex flex-col items-center justify-center overflow-hidden bg-gradient-to-b from-gray-100 to-gray-300">
+    <div className="relative h-[calc(100vh-100px)] flex flex-col items-center justify-center overflow-hidden bg-gradient-to-b from-gray-100 to-gray-300">
       {/* Parallax Background Effect */}
       <motion.div
         className="absolute top-0 left-0 w-full h-full bg-fixed"
@@ -99,7 +99,7 @@ const HeroSection = () => {
         transition={{ duration: 1, ease: "easeOut" }}
       >
         {/* Typewriter Effect for Name */}
-        <h1 className="text-2xl md:text-5xl  text-red-500">
+        <h1 className="text-2xl md:text-5xl font-semibold text-red-500">
           <TypeAnimation
             sequence={[
               "Sakib Nahid",
