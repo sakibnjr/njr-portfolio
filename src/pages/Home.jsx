@@ -76,7 +76,7 @@ const WelcomeMessage = ({ onComplete }) => {
 // Hero Section
 const HeroSection = () => {
   return (
-    <div className="relative h-[calc(100vh-100px)] flex flex-col items-center justify-center overflow-hidden bg-gradient-to-b from-gray-100 to-gray-300">
+    <div className="relative min-h-screen flex flex-col items-center justify-center overflow-hidden bg-gradient-to-b from-gray-100 to-gray-300">
       {/* Parallax Background Effect */}
       <motion.div
         className="absolute top-0 left-0 w-full h-full bg-fixed"

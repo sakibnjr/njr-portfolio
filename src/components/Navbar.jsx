@@ -56,9 +56,7 @@ const Navbar = () => {
           >
             <NavLink to="/">
               sakib
-              <span className="italic text-4xl relative top-1 right-1">
-                N
-              </span>{" "}
+              <span className="italic text-4xl relative top-1 right-1">N</span>
               jr
             </NavLink>
           </motion.h1>
@@ -88,7 +86,7 @@ const Navbar = () => {
       </motion.nav>
 
       {/* Mobile Navigation */}
-      <div className="md:hidden fixed inset-x-0 bottom-0 bg-white/70 backdrop-blur-md text-gray-900 py-2 flex justify-around items-center shadow-md">
+      <div className="md:hidden fixed inset-x-0 bottom-0 bg-white/70 backdrop-blur-md text-gray-900 py-2 flex justify-around items-center shadow-md z-10">
         <NavLink to="/" className={navLinkClass}>
           <FontAwesomeIcon icon={faHome} className="text-xl" />{" "}
           {/* Added Icon */}
@@ -108,7 +106,7 @@ const Navbar = () => {
       </div>
 
       {/* Mobile View: Site Name at Top with Fancy Font */}
-      <div className="md:hidden relative text-center py-2">
+      <div className="md:hidden fixed inset-x-0 top-0 bg-white/70 backdrop-blur-md text-center py-2 z-10">
         <motion.h1
           className="text-2xl font-bold text-red-500 font-[cursive]" // Fancy font for mobile too
           initial={{ opacity: 0, scale: 0.8 }}
