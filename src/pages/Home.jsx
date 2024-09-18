@@ -35,7 +35,7 @@ const WelcomeMessage = ({ onComplete }) => {
     const timer2 = setTimeout(() => {
       setShowSecondMessage(false);
       onComplete(); // Notify parent component when animation is complete
-    }, 3000); // Show second message for 2 seconds, adjust if needed
+    }, 4000); // Show second message for 2 seconds, adjust if needed
 
     return () => {
       clearTimeout(timer1);
@@ -48,7 +48,7 @@ const WelcomeMessage = ({ onComplete }) => {
       {/* First Message */}
       {showFirstMessage && (
         <motion.h1
-          className="text-4xl font-bold text-red-500"
+          className="text-6xl font-bold text-red-500"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 1 }}
@@ -61,12 +61,12 @@ const WelcomeMessage = ({ onComplete }) => {
       {showSecondMessage && (
         <TypeAnimation
           sequence={[
-            "I'm the developer you need", // Types this message
-            2000, // Waits for 2 seconds
+            "I'm the developer you need...", // Types this message
+            4000, // Waits for 2 seconds
           ]}
           wrapper="h2"
           speed={50}
-          className="text-2xl font-semibold text-gray-700 mt-4"
+          className="text-4xl font-semibold text-gray-700 mt-4 mx-4"
         />
       )}
     </div>
