@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { TypeAnimation } from "react-type-animation";
 import { Link } from "react-scroll"; // For smooth scrolling
@@ -21,6 +21,58 @@ const CommandButton = ({ command, link }) => (
   </motion.div>
 );
 
+// Welcome Message Component
+const WelcomeMessage = ({ onComplete }) => {
+  const [showFirstMessage, setShowFirstMessage] = useState(true);
+  const [showSecondMessage, setShowSecondMessage] = useState(false);
+
+  useEffect(() => {
+    const timer1 = setTimeout(() => {
+      setShowFirstMessage(false);
+      setShowSecondMessage(true);
+    }, 1000); // Show first message for 1 second
+
+    const timer2 = setTimeout(() => {
+      setShowSecondMessage(false);
+      onComplete(); // Notify parent component when animation is complete
+    }, 3000); // Show second message for 2 seconds, adjust if needed
+
+    return () => {
+      clearTimeout(timer1);
+      clearTimeout(timer2);
+    };
+  }, [onComplete]);
+
+  return (
+    <div className="flex flex-col items-center justify-center h-screen">
+      {/* First Message */}
+      {showFirstMessage && (
+        <motion.h1
+          className="text-4xl font-bold text-red-500"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 1 }}
+        >
+          Welcome
+        </motion.h1>
+      )}
+
+      {/* Second Message with Typewriter Effect */}
+      {showSecondMessage && (
+        <TypeAnimation
+          sequence={[
+            "The developer you need", // Types this message
+            2000, // Waits for 2 seconds
+          ]}
+          wrapper="h2"
+          speed={50}
+          className="text-2xl font-semibold text-gray-700 mt-4"
+        />
+      )}
+    </div>
+  );
+};
+
 // Hero Section
 const HeroSection = () => {
   return (
@@ -39,7 +91,7 @@ const HeroSection = () => {
         transition={{ duration: 1 }}
       />
 
-      {/* Content */}
+      {/* Main Content */}
       <motion.div
         className="z-10 text-center"
         initial={{ opacity: 0, y: 50 }}
@@ -79,6 +131,13 @@ const HeroSection = () => {
 
 // Home Component
 const Home = () => {
+  const [showContent, setShowContent] = useState(false);
+
+  // Function to handle when the WelcomeMessage animation is complete
+  const handleWelcomeComplete = () => {
+    setShowContent(true);
+  };
+
   return (
     <motion.div
       initial={{ opacity: 0 }}
@@ -87,7 +146,11 @@ const Home = () => {
       transition={{ duration: 0.5 }}
       className="bg-gray-50"
     >
-      <HeroSection />
+      {/* Welcome Message */}
+      {!showContent && <WelcomeMessage onComplete={handleWelcomeComplete} />}
+
+      {/* Hero Section */}
+      {showContent && <HeroSection />}
 
       {/* Smooth Scrolling Sections */}
       <motion.section
