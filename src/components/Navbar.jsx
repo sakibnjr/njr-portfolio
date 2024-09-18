@@ -106,7 +106,7 @@ const Navbar = () => {
       </div>
 
       {/* Mobile View: Site Name at Top with Fancy Font */}
-      <div className="md:hidden fixed inset-x-0 top-0 bg-white/70 backdrop-blur-md text-center py-2 z-10">
+      <div className="md:hidden fixed inset-x-0 top-0 bg-transparent backdrop-blur-md text-center py-2 z-10">
         <motion.h1
           className="text-2xl font-bold text-red-500 font-[cursive]" // Fancy font for mobile too
           initial={{ opacity: 0, scale: 0.8 }}
