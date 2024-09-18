@@ -5,6 +5,8 @@ import Home from "./pages/Home"; // Placeholder for Home page
 import About from "./pages/About"; // Placeholder for About page
 import Projects from "./pages/Projects"; // Placeholder for Projects page
 import Contact from "./pages/Contact"; // Placeholder for Contact page
+import Skills from "./pages/Skills";
+import Certifications from "./pages/Certifications";
 
 const App = () => {
   return (
@@ -16,6 +18,8 @@ const App = () => {
           <Route path="/about" element={<About />} />
           <Route path="/projects" element={<Projects />} />
           <Route path="/contact" element={<Contact />} />
+          <Route path="/skills" element={<Skills />} />
+          <Route path="/certifications" element={<Certifications />} />
         </Routes>
       </div>
     </Router>

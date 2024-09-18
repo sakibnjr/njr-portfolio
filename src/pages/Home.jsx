@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { TypeAnimation } from "react-type-animation";
-import { Link } from "react-scroll"; // For smooth scrolling
+import { Link } from "react-router-dom"; // For smooth scrolling
 
 // Command Button Component
 const CommandButton = ({ command, link }) => (
@@ -11,8 +11,8 @@ const CommandButton = ({ command, link }) => (
     className="mt-2"
   >
     <Link
-      to={link}
-      smooth={true}
+      to={`/${link}`}
+      // smooth={true}
       duration={500}
       className="text-lg font-mono text-red-500 cursor-pointer hover:text-gray-800 neon-text"
     >

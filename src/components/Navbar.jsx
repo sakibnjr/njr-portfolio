@@ -12,7 +12,7 @@ const Navbar = () => {
         animate={{ y: 0 }}
         transition={{ duration: 0.5, ease: "easeOut" }}
       >
-        <div className="container mx-auto flex justify-between items-center px-4 py-3">
+        <div className="container w-4/5 mx-auto flex justify-between items-center px-4 py-3">
           {/* Left Side Buttons */}
           <div className="flex space-x-6">
             <motion.div
