@@ -7,7 +7,7 @@ const skillCategories = {
   backend: "from-green-500 to-green-300",
   database: "from-yellow-500 to-yellow-300",
   languages: "from-purple-500 to-purple-300",
-  uiux: "from-pink-500 to-pink-300",
+  UIUX: "from-pink-500 to-pink-300",
 };
 
 // Skill data with categories
@@ -23,11 +23,11 @@ const skillData = [
   { name: "Bootstrap", percentage: 80, category: "frontend" },
   { name: "PHP", percentage: 75, category: "backend" },
   { name: "MySQL", percentage: 70, category: "database" },
-  { name: "Adobe XD", percentage: 75, category: "uiux" },
+  { name: "Adobe XD", percentage: 75, category: "UIUX" },
   { name: "Python", percentage: 80, category: "languages" },
   { name: "Java", percentage: 75, category: "languages" },
   { name: "C", percentage: 70, category: "languages" },
-  { name: "Figma", percentage: 75, category: "uiux" },
+  { name: "Figma", percentage: 75, category: "UIUX" },
 ];
 
 // Skill Card Component
@@ -78,7 +78,7 @@ const Skills = () => {
 
   return (
     <div className="min-h-screen bg-gray-100 py-12 px-4 sm:px-6 lg:px-8">
-      <div className="max-w-7xl mx-auto">
+      <div className="max-w-7xl mx-auto flex flex-col justify-center items-center">
         <h2 className="text-4xl font-bold text-center text-red-500 mb-10">
           Skills
         </h2>

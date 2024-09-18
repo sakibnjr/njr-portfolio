@@ -1,8 +1,20 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
 import { motion } from "framer-motion";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faHome,
+  faUser,
+  faFolder,
+  faEnvelope,
+} from "@fortawesome/free-solid-svg-icons"; // FontAwesome icons
 
 const Navbar = () => {
+  const navLinkClass = ({ isActive }) =>
+    isActive
+      ? "text-red-500 uppercase tracking-tight font-semibold"
+      : "text-black uppercase tracking-tight hover:text-red-500 ";
+
   return (
     <>
       {/* Navbar for Desktop View */}
@@ -20,10 +32,7 @@ const Navbar = () => {
               whileTap={{ scale: 0.95 }}
               className="transition-all duration-300"
             >
-              <NavLink
-                to="/"
-                className="text-red-500 font-semibold hover:text-gray-700"
-              >
+              <NavLink to="/" className={navLinkClass}>
                 Home
               </NavLink>
             </motion.div>
@@ -32,23 +41,22 @@ const Navbar = () => {
               whileTap={{ scale: 0.95 }}
               className="transition-all duration-300"
             >
-              <NavLink
-                to="/about"
-                className="text-red-500 font-semibold hover:text-gray-700"
-              >
-                About
+              <NavLink to="/about" className={navLinkClass}>
+                Who am I?
               </NavLink>
             </motion.div>
           </div>
 
-          {/* Site Name in Center */}
+          {/* Site Name in Center with Fancy Font */}
           <motion.h1
-            className="text-2xl font-bold text-red-500"
+            className="text-3xl font-bold text-red-500 font-[Merienda] tracking-tight" // Fancy font
             initial={{ opacity: 0, scale: 0.8 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.7, ease: "easeOut" }}
           >
-            SakibNJr
+            <NavLink to="/">
+              sakib<span className="italic text-4xl">N</span> jr
+            </NavLink>
           </motion.h1>
 
           {/* Right Side Buttons */}
@@ -58,11 +66,8 @@ const Navbar = () => {
               whileTap={{ scale: 0.95 }}
               className="transition-all duration-300"
             >
-              <NavLink
-                to="/projects"
-                className="text-red-500 font-semibold hover:text-gray-700"
-              >
-                Projects
+              <NavLink to="/certifications" className={navLinkClass}>
+                Certifications
               </NavLink>
             </motion.div>
             <motion.div
@@ -70,10 +75,7 @@ const Navbar = () => {
               whileTap={{ scale: 0.95 }}
               className="transition-all duration-300"
             >
-              <NavLink
-                to="/contact"
-                className="text-red-500 font-semibold hover:text-gray-700"
-              >
+              <NavLink to="/contact" className={navLinkClass}>
                 Contact
               </NavLink>
             </motion.div>
@@ -83,36 +85,28 @@ const Navbar = () => {
 
       {/* Mobile Navigation */}
       <div className="md:hidden fixed inset-x-0 bottom-0 bg-white/70 backdrop-blur-md text-gray-900 py-2 flex justify-around items-center shadow-md">
-        <NavLink
-          to="/"
-          className="text-red-500 font-semibold hover:text-gray-700"
-        >
-          Home
+        <NavLink to="/" className={navLinkClass}>
+          <FontAwesomeIcon icon={faHome} className="text-xl" />{" "}
+          {/* Added Icon */}
         </NavLink>
-        <NavLink
-          to="/about"
-          className="text-red-500 font-semibold hover:text-gray-700"
-        >
-          About
+        <NavLink to="/about" className={navLinkClass}>
+          <FontAwesomeIcon icon={faUser} className="text-xl" />{" "}
+          {/* Added Icon */}
         </NavLink>
-        <NavLink
-          to="/projects"
-          className="text-red-500 font-semibold hover:text-gray-700"
-        >
-          Projects
+        <NavLink to="/projects" className={navLinkClass}>
+          <FontAwesomeIcon icon={faFolder} className="text-xl" />{" "}
+          {/* Added Icon */}
         </NavLink>
-        <NavLink
-          to="/contact"
-          className="text-red-500 font-semibold hover:text-gray-700"
-        >
-          Contact
+        <NavLink to="/contact" className={navLinkClass}>
+          <FontAwesomeIcon icon={faEnvelope} className="text-xl" />{" "}
+          {/* Added Icon */}
         </NavLink>
       </div>
 
-      {/* Mobile View: Site Name at Top */}
+      {/* Mobile View: Site Name at Top with Fancy Font */}
       <div className="md:hidden fixed inset-x-0 top-0 bg-transparent text-center py-4">
         <motion.h1
-          className="text-2xl font-bold text-red-500"
+          className="text-2xl font-bold text-red-500 font-[cursive]" // Fancy font for mobile too
           initial={{ opacity: 0, scale: 0.8 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.7, ease: "easeOut" }}

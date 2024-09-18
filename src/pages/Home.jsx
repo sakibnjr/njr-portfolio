@@ -61,7 +61,7 @@ const WelcomeMessage = ({ onComplete }) => {
       {showSecondMessage && (
         <TypeAnimation
           sequence={[
-            "The developer you need", // Types this message
+            "I'm the developer you need", // Types this message
             2000, // Waits for 2 seconds
           ]}
           wrapper="h2"
@@ -99,13 +99,23 @@ const HeroSection = () => {
         transition={{ duration: 1, ease: "easeOut" }}
       >
         {/* Typewriter Effect for Name */}
-        <h1 className="text-5xl font-bold text-red-500">
+        <h1 className="text-2xl md:text-5xl  text-red-500">
           <TypeAnimation
             sequence={[
-              "Sakib Nahid", // Types your name
-              1500, // Waits 1.5 seconds
-              "Building Powerful Digital Experiences", // Types the tagline
-              2000, // Waits 2 seconds
+              "Sakib Nahid",
+              1500,
+              "Innovating The Web",
+              1000,
+              "Faster Than Ever",
+              1000,
+              "Next-Level Performance",
+              1000,
+              "Seamless Interactions",
+              800,
+              "Beautifully Designed",
+              800,
+              "Built for the Future",
+              800,
             ]}
             wrapper="span"
             speed={50}
@@ -113,7 +123,7 @@ const HeroSection = () => {
           />
         </h1>
 
-        <p className="mt-4 text-xl text-gray-600">
+        <p className="mt-4 md:text-xl text-gray-600">
           Full Stack Developer | MERN Specialist
         </p>
 
