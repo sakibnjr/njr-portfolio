@@ -86,7 +86,7 @@ const Navbar = () => {
       </motion.nav>
 
       {/* Mobile Navigation */}
-      <div className="md:hidden fixed inset-x-0 bottom-0 bg-white/70 backdrop-blur-md text-gray-900 py-2 flex justify-around items-center shadow-md z-10">
+      <div className="md:hidden fixed inset-x-0 bottom-0 bg-white/70 backdrop-blur-md text-gray-900 py-3 flex justify-around items-center shadow-md z-10">
         <NavLink to="/" className={navLinkClass}>
           <FontAwesomeIcon icon={faHome} className="text-xl" />{" "}
           {/* Added Icon */}
