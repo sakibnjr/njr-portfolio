@@ -5,7 +5,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faHome,
   faUser,
-  faFolder,
+  faAward,
   faEnvelope,
 } from "@fortawesome/free-solid-svg-icons"; // FontAwesome icons
 
@@ -93,8 +93,8 @@ const Navbar = () => {
           <FontAwesomeIcon icon={faUser} className="text-xl" />{" "}
           {/* Added Icon */}
         </NavLink>
-        <NavLink to="/projects" className={navLinkClass}>
-          <FontAwesomeIcon icon={faFolder} className="text-xl" />{" "}
+        <NavLink to="/certifications" className={navLinkClass}>
+          <FontAwesomeIcon icon={faAward} className="text-xl" />{" "}
           {/* Added Icon */}
         </NavLink>
         <NavLink to="/contact" className={navLinkClass}>

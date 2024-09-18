@@ -131,7 +131,7 @@ const HeroSection = () => {
         <div className="mt-6 flex flex-col items-center">
           <p className="text-md text-gray-500 font-mono">{`> Type a command:`}</p>
           <CommandButton command="> show projects" link="projects" />
-          <CommandButton command="> show skills" link="skills" />
+          <CommandButton command="> check skills" link="skills" />
           <CommandButton command="> let's build" link="contact" />
         </div>
       </motion.div>
