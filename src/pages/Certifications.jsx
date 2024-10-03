@@ -52,7 +52,7 @@ const motionProps = (index) => ({
 
 const Certifications = () => {
   return (
-    <div className="relative min-h-screen bg-gray-100 py-16 md:py-6 px-4 sm:px-6 lg:px-8">
+    <div className="relative min-h-screen bg-gray-100 py-16 md:py-6 px-4 sm:px-6 lg:px-8 overflow-x-hidden">
       <h2 className="text-4xl font-bold text-center text-dark mb-10">
         Certifications
       </h2>
@@ -67,7 +67,7 @@ const Certifications = () => {
                 index % 2 === 0
                   ? "justify-start pl-5 sm:pl-10"
                   : "justify-end pr-5 sm:pr-10"
-              } items-center mb-16`}
+              } items-center mb-16 overflow-x-hidden`}
               {...motionProps(index)}
             >
               <div className="relative w-full max-w-md overflow-hidden">
