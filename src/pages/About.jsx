@@ -40,7 +40,7 @@ const Technology = ({ icon, name }) => (
 // AboutMe Component
 const AboutMe = () => {
   return (
-    <div className="relative min-h-screen bg-gray-100 py-16 md:py-6 px-4 sm:px-6 lg:px-8">
+    <div className="relative min-h-screen bg-gray-100 py-16 md:py-6 px-4 sm:px-6 lg:px-8 z-0">
       <div className="max-w-7xl mx-auto">
         <div className="flex flex-col lg:flex-row items-center">
           {/* Professional Photo */}
