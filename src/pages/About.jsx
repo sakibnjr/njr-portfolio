@@ -40,7 +40,7 @@ const Technology = ({ icon, name }) => (
 // AboutMe Component
 const AboutMe = () => {
   return (
-    <div className="relative min-h-screen bg-gray-100 py-16 md:py-6 px-4 sm:px-6 lg:px-8 z-0">
+    <div className="relative min-h-screen bg-gray-100 py-16 md:py-6 px-4 sm:px-6 lg:px-8 z-0 overflow-x-hidden">
       <div className="max-w-7xl mx-auto">
         <div className="flex flex-col lg:flex-row items-center">
           {/* Professional Photo */}
@@ -120,7 +120,7 @@ const AboutMe = () => {
           <h3 className="text-2xl font-bold text-red-500 text-center">
             Technologies I Master
           </h3>
-          <div className="mt-6 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+          <div className="mt-6 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 max-w-full">
             {[
               { icon: <FaReact />, name: "React" },
               { icon: <FaNode />, name: "Node.js" },
