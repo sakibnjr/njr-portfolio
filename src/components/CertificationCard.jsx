@@ -7,7 +7,7 @@ const CertificationCard = ({ name, issuer, date, link }) => {
       href={link}
       target="_blank"
       rel="noopener noreferrer"
-      className="relative block bg-white p-6 rounded-lg shadow-lg border-2 border-transparent hover:border-red-500 transition-all duration-300 ease-in-out"
+      className="relative block bg-white p-6 rounded-lg shadow-lg border-2 border-transparent hover:border-red-500 transition-all duration-300 ease-in-out max-w-full"
       whileHover={{ scale: 1.05 }}
       initial={{ opacity: 0, x: -20 }}
       animate={{ opacity: 1, x: 0 }}

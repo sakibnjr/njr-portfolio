@@ -44,10 +44,10 @@ const certifications = [
 
 // Shared motion properties to avoid duplication
 const motionProps = (index) => ({
-  initial: { opacity: 0, x: index % 2 === 0 ? -50 : 50 }, // Start from left or right
-  whileInView: { opacity: 1, x: 0 }, // Animate to center
-  viewport: { once: true }, // Animate only once when in view
-  transition: { duration: 0.5 }, // Animation duration
+  initial: { opacity: 0, x: index % 2 === 0 ? -50 : 50 },
+  whileInView: { opacity: 1, x: 0 },
+  viewport: { once: true },
+  transition: { duration: 0.5 },
 });
 
 const Certifications = () => {
@@ -64,11 +64,13 @@ const Certifications = () => {
             <motion.div
               key={name}
               className={`relative flex ${
-                index % 2 === 0 ? "justify-start pl-10" : "justify-end pr-10"
+                index % 2 === 0
+                  ? "justify-start pl-5 sm:pl-10"
+                  : "justify-end pr-5 sm:pr-10"
               } items-center mb-16`}
               {...motionProps(index)}
             >
-              <div className="relative w-full max-w-md">
+              <div className="relative w-full max-w-md overflow-hidden">
                 <CertificationCard
                   name={name}
                   issuer={issuer}
