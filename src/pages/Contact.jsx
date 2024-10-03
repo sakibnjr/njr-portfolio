@@ -23,7 +23,7 @@ const Contact = () => {
               <SocialLinks />
             </div>
           </div>
-          <div className="lg:w-3/10 w-full">
+          <div className="lg:w-3/10 w-full z-0">
             <MapComponent />
           </div>
         </div>

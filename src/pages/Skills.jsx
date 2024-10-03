@@ -1,13 +1,39 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import { motion } from "framer-motion";
+import {
+  CodeBracketIcon,
+  ServerIcon,
+  BookOpenIcon,
+  RectangleGroupIcon,
+} from "@heroicons/react/24/outline";
 
-// Skill categories with colors
+// Skill categories with colors, icons, and names
 const skillCategories = {
-  frontend: "from-blue-500 to-blue-300",
-  backend: "from-green-500 to-green-300",
-  database: "from-yellow-500 to-yellow-300",
-  languages: "from-purple-500 to-purple-300",
-  UIUX: "from-pink-500 to-pink-300",
+  frontend: {
+    name: "Frontend",
+    color: "from-blue-500 to-blue-300",
+    icon: <CodeBracketIcon className="h-6 w-6" />,
+  },
+  backend: {
+    name: "Backend",
+    color: "from-green-500 to-green-300",
+    icon: <ServerIcon className="h-6 w-6" />,
+  },
+  database: {
+    name: "Database",
+    color: "from-yellow-500 to-yellow-300",
+    icon: <ServerIcon className="h-6 w-6" />,
+  },
+  languages: {
+    name: "Languages",
+    color: "from-purple-500 to-purple-300",
+    icon: <BookOpenIcon className="h-6 w-6" />,
+  },
+  UIUX: {
+    name: "UI/UX",
+    color: "from-pink-500 to-pink-300",
+    icon: <RectangleGroupIcon className="h-6 w-6" />,
+  },
 };
 
 // Skill data with categories
@@ -30,77 +56,98 @@ const skillData = [
   { name: "Figma", percentage: 75, category: "UIUX" },
 ];
 
-// Skill Card Component
-const SkillCard = ({ name, percentage, category }) => {
-  const [animatePercentage, setAnimatePercentage] = useState(0);
+// Memoized Skill Card Component
+const SkillCard = React.memo(({ name, percentage, category }) => {
+  const glowColor = skillCategories[category].color;
 
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      setAnimatePercentage(percentage);
-    }, 100); // Small delay for animation
-
-    return () => clearTimeout(timer);
-  }, [percentage]);
-
-  const glowColor = skillCategories[category];
+  // Hover animation variants
+  const cardVariants = {
+    hover: {
+      scale: 1.05,
+      boxShadow: "0px 10px 20px rgba(0, 0, 0, 0.2)",
+      y: -5,
+      transition: { duration: 0.3, type: "spring", stiffness: 300 },
+    },
+    rest: {
+      scale: 1,
+      boxShadow: "0px 4px 8px rgba(0, 0, 0, 0.1)",
+      y: 0,
+      transition: { duration: 0.3, type: "spring", stiffness: 300 },
+    },
+  };
 
   return (
-    <div
-      className={`relative w-64 p-4 rounded-lg shadow-lg overflow-hidden bg-white`}
+    <motion.div
+      className="relative w-full sm:w-64 p-6 rounded-lg shadow-lg bg-white transition-transform duration-300 z-0"
+      variants={cardVariants}
+      initial="rest"
+      whileHover="hover"
     >
       {/* Gradient Background */}
       <div
-        className={`absolute inset-0 bg-gradient-to-r ${glowColor} opacity-50`}
+        className={`absolute inset-0 bg-gradient-to-r ${glowColor} opacity-30 rounded-lg`}
       ></div>
-      <h3 className="relative z-10 text-xl font-semibold mb-2">{name}</h3>
-      <div className="relative pt-1">
-        <div className="flex items-center justify-between mb-1">
-          <span className="text-xs font-medium text-gray-600">
-            {animatePercentage}%
-          </span>
-        </div>
-        <div className="w-full bg-gray-200 rounded-full">
+
+      {/* Content */}
+      <div className="relative z-10 flex flex-col items-center">
+        <h3 className="text-xl font-semibold text-gray-800 mb-2">{name}</h3>
+        <div className="w-full bg-gray-200 rounded-full h-3 mb-2 overflow-hidden">
           <motion.div
-            className="h-2 bg-red-500 rounded-full"
+            className="h-full bg-gradient-to-r from-blue-500 to-purple-500 rounded-full"
             initial={{ width: 0 }}
-            animate={{ width: `${animatePercentage}%` }}
-            transition={{ duration: 1 }} // Animation duration
+            animate={{ width: `${percentage}%` }}
+            transition={{ duration: 1, ease: "easeInOut" }}
           />
         </div>
+        <span className="text-sm text-gray-600">{percentage}%</span>
       </div>
-    </div>
+    </motion.div>
   );
-};
+});
 
 // Skills Component
 const Skills = () => {
   const categories = Object.keys(skillCategories);
 
   return (
-    <div className="min-h-screen bg-gray-100 py-16 md:py-6 px-4 sm:px-6 lg:px-8">
-      <div className="max-w-7xl mx-auto flex flex-col justify-center items-center">
-        {/* <h2 className="text-4xl font-bold text-center text-dark mb-10">
-          Skills
-        </h2> */}
-        {categories.map((category) => (
-          <div key={category} className="mb-12">
-            <h3 className="text-3xl font-semibold text-gray-800 mb-6 capitalize">
-              {category}
-            </h3>
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-              {skillData
-                .filter((skill) => skill.category === category)
-                .map((skill) => (
-                  <SkillCard
-                    key={skill.name}
-                    name={skill.name}
-                    percentage={skill.percentage}
-                    category={category}
-                  />
-                ))}
+    <div
+      className="bg-gray-100 p-4 px-4 sm:px-6 lg:px-8 mt-12 md:mt-2 z-0" // Added margin-top to prevent overlap
+      id="skills"
+    >
+      <div className="max-w-7xl mx-auto text-center">
+        <h2 className="text-4xl sm:text-5xl font-bold text-gray-800 mb-8">
+          My Skillset
+        </h2>
+        <p className="text-lg text-gray-600 mb-12">
+          A glimpse into the tools and technologies I'm proficient in.
+        </p>
+
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+          {categories.map((category) => (
+            <div key={category} className="flex flex-col items-center">
+              {/* Category Icon and Name */}
+              <div className="flex items-center mb-4 text-primary-500">
+                {skillCategories[category].icon}
+                <span className="ml-2 text-xl font-semibold">
+                  {skillCategories[category].name}
+                </span>
+              </div>
+
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                {skillData
+                  .filter((skill) => skill.category === category)
+                  .map((skill) => (
+                    <SkillCard
+                      key={skill.name}
+                      name={skill.name}
+                      percentage={skill.percentage}
+                      category={category}
+                    />
+                  ))}
+              </div>
             </div>
-          </div>
-        ))}
+          ))}
+        </div>
       </div>
     </div>
   );

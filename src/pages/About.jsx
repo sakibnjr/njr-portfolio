@@ -1,14 +1,21 @@
 import React from "react";
 import { motion } from "framer-motion";
-import { FaReact, FaNode, FaCss3Alt, FaJs, FaGithub } from "react-icons/fa"; // Dummy tech icons
+import { FaReact, FaNode, FaCss3Alt, FaJs, FaGithub } from "react-icons/fa";
+
+// Animation properties
+const motionProps = {
+  hidden: { opacity: 0, x: 100 },
+  visible: { opacity: 1, x: 0 },
+  transition: { duration: 0.8, ease: "easeOut" },
+};
 
 // Timeline Milestone Component
 const Milestone = ({ year, title, description, alignment }) => (
   <motion.div
     className={`relative p-4 border-l-4 border-red-500 bg-gray-50 rounded-md shadow-md mb-6 ${alignment}`}
-    initial={{ opacity: 0, x: alignment === "left" ? -100 : 100 }}
-    animate={{ opacity: 1, x: 0 }}
-    transition={{ duration: 0.8, ease: "easeOut" }}
+    initial={motionProps.hidden}
+    animate={motionProps.visible}
+    transition={motionProps.transition}
   >
     <div className="absolute -left-5 top-1/2 transform -translate-y-1/2">
       <div className="w-3 h-3 bg-red-500 rounded-full" />
@@ -33,7 +40,7 @@ const Technology = ({ icon, name }) => (
 // AboutMe Component
 const AboutMe = () => {
   return (
-    <div className="relative min-h-screen bg-gray-100 py-16 md:py-6  px-4 sm:px-6 lg:px-8">
+    <div className="relative min-h-screen bg-gray-100 py-16 md:py-6 px-4 sm:px-6 lg:px-8">
       <div className="max-w-7xl mx-auto">
         <div className="flex flex-col lg:flex-row items-center">
           {/* Professional Photo */}
@@ -79,27 +86,32 @@ const AboutMe = () => {
           <h3 className="text-2xl font-bold text-red-500 text-center">
             Career Milestones
           </h3>
-          <div className="mt-6">
-            <div className="flex flex-col items-center">
-              <Milestone
-                year="2023"
-                title="Started Freelancing"
-                description="Began offering freelance web development services to various clients, focusing on custom React applications."
-                alignment="left"
-              />
-              <Milestone
-                year="2022"
-                title="Graduated University"
-                description="Completed a degree in Computer Science, specializing in Full Stack Web Development."
-                alignment="right"
-              />
-              <Milestone
-                year="2021"
-                title="Internship at Tech Company"
-                description="Worked as a web development intern, gaining hands-on experience in a professional setting."
-                alignment="left"
-              />
-            </div>
+          <div className="mt-6 flex flex-col">
+            {[
+              {
+                year: "2023",
+                title: "Started Freelancing",
+                description:
+                  "Began offering freelance web development services to various clients, focusing on custom React applications.",
+                alignment: "left",
+              },
+              {
+                year: "2022",
+                title: "Graduated University",
+                description:
+                  "Completed a degree in Computer Science, specializing in Full Stack Web Development.",
+                alignment: "right",
+              },
+              {
+                year: "2021",
+                title: "Internship at Tech Company",
+                description:
+                  "Worked as a web development intern, gaining hands-on experience in a professional setting.",
+                alignment: "left",
+              },
+            ].map((milestone, index) => (
+              <Milestone key={index} {...milestone} />
+            ))}
           </div>
         </div>
 
@@ -109,11 +121,15 @@ const AboutMe = () => {
             Technologies I Master
           </h3>
           <div className="mt-6 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
-            <Technology icon={<FaReact />} name="React" />
-            <Technology icon={<FaNode />} name="Node.js" />
-            <Technology icon={<FaJs />} name="JavaScript" />
-            <Technology icon={<FaCss3Alt />} name="CSS3" />
-            <Technology icon={<FaGithub />} name="GitHub" />
+            {[
+              { icon: <FaReact />, name: "React" },
+              { icon: <FaNode />, name: "Node.js" },
+              { icon: <FaJs />, name: "JavaScript" },
+              { icon: <FaCss3Alt />, name: "CSS3" },
+              { icon: <FaGithub />, name: "GitHub" },
+            ].map((tech, index) => (
+              <Technology key={index} {...tech} />
+            ))}
           </div>
         </div>
       </div>
